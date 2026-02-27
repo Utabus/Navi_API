@@ -1,0 +1,130 @@
+@Navi_API_HostAddress = http://localhost:5219
+
+### ========================================
+### WEATHER FORECAST
+### ========================================
+
+### Get Weather Forecast
+GET {{Navi_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### ========================================
+### CATEGORIES
+### ========================================
+
+### Lấy tất cả categories
+GET {{Navi_API_HostAddress}}/api/categories
+Accept: application/json
+
+###
+
+### Lấy category theo Id
+GET {{Navi_API_HostAddress}}/api/categories/{{categoryId}}
+Accept: application/json
+
+###
+
+### Lấy category kèm danh sách products
+GET {{Navi_API_HostAddress}}/api/categories/{{categoryId}}/products
+Accept: application/json
+
+###
+
+### Tạo category mới
+POST {{Navi_API_HostAddress}}/api/categories
+Content-Type: application/json
+
+{
+    "name": "Electronics",
+    "description": "Điện tử và thiết bị công nghệ"
+}
+
+###
+
+### Cập nhật category
+PUT {{Navi_API_HostAddress}}/api/categories/{{categoryId}}
+Content-Type: application/json
+
+{
+    "name": "Electronics Updated",
+    "description": "Mô tả cập nhật cho category"
+}
+
+###
+
+### Xóa category
+DELETE {{Navi_API_HostAddress}}/api/categories/{{categoryId}}
+Accept: application/json
+
+### ========================================
+### PRODUCTS
+### ========================================
+
+### Lấy tất cả products
+GET {{Navi_API_HostAddress}}/api/products
+Accept: application/json
+
+###
+
+### Lấy product theo Id
+GET {{Navi_API_HostAddress}}/api/products/{{productId}}
+Accept: application/json
+
+###
+
+### Lấy products theo category
+GET {{Navi_API_HostAddress}}/api/products/category/{{categoryId}}
+Accept: application/json
+
+###
+
+### Lấy products đang active
+GET {{Navi_API_HostAddress}}/api/products/active
+Accept: application/json
+
+###
+
+### Tìm kiếm products theo từ khóa
+GET {{Navi_API_HostAddress}}/api/products/search?term=laptop
+Accept: application/json
+
+###
+
+### Tạo product mới
+POST {{Navi_API_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+    "name": "Laptop Dell XPS 15",
+    "description": "Laptop cao cấp cho doanh nhân",
+    "price": 35000000,
+    "categoryId": "{{categoryId}}",
+    "isActive": true
+}
+
+###
+
+### Cập nhật product
+PUT {{Navi_API_HostAddress}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+    "name": "Laptop Dell XPS 15 Updated",
+    "description": "Mô tả cập nhật cho product",
+    "price": 36000000,
+    "categoryId": "{{categoryId}}",
+    "isActive": true
+}
+
+###
+
+### Xóa product
+DELETE {{Navi_API_HostAddress}}/api/products/{{productId}}
+Accept: application/json
+
+### ========================================
+### SAMPLE VARIABLES (Replace with actual values)
+### ========================================
+# Uncomment and set actual values before testing:
+# @categoryId = 00000000-0000-0000-0000-000000000000
+# @productId = 00000000-0000-0000-0000-000000000000
